@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {getUser} from '../../store/authReducer';
 import {signOut} from '../../store/loginUser';
 
+import Button from 'react-bootstrap/Button';
+
 function Header(props) {
     return (
         <div className="header">
             <h2>React test application</h2>
             {
                 props.user?
-                <button onClick={props.signOut}>Sign Out</button>:
+                <Button variant="warning" onClick={props.signOut}>Sign Out</Button>:
                 null
             }
         </div>
