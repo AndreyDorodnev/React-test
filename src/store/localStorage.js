@@ -1,8 +1,3 @@
-const initialState = {
-    user: null,
-    authError: null
-}
-
 export const loadState = () => {
     try {
       const state = localStorage.getItem('userState');
