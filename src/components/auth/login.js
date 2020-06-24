@@ -10,7 +10,6 @@ function Login(props) {
     const [password,setPassword] = useState('');
 
     const onFormSubmit = (event) => {
-        // debugger;
         event.preventDefault();
         props.signIn(username,password);
     }
@@ -23,7 +22,7 @@ function Login(props) {
 
     return (
         <form onSubmit={onFormSubmit}>
-            <h3>Please, sign in</h3>
+            <h3>Sign in form</h3>
             <div className="form-group">
                 <label>Username</label>
                 <input type="text" required placeholder="username" value={username} onChange={(event)=>setUsername(event.target.value)}></input>
