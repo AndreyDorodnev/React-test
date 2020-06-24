@@ -1,0 +1,19 @@
+.vacancy {
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    h2{
+        font-size: 24px;
+    }
+    p,ul,h2{
+        margin-bottom: 4px;
+    }
+
+}
+.spinner{
+    width: 100px;
+    margin: 0 auto;
+}
