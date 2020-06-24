@@ -8,10 +8,10 @@ import Button from 'react-bootstrap/Button';
 function Header(props) {
     return (
         <div className="header">
-            <h2>React test application</h2>
+            <h5>React test application</h5>
             {
                 props.user?
-                <Button variant="warning" onClick={props.signOut}>Sign Out</Button>:
+                <Button  size="sm" variant="warning" onClick={props.signOut}>Sign Out</Button>:
                 null
             }
         </div>
