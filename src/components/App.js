@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Layout from '../components/layout/Layout';
 
-import '../components/App.css';
+import '../styles/style.scss';
 
 function App() {
     return (
-        <div>
-            <h1>START</h1>
-        </div>
+        <>
+            <Layout/>
+        </>
     );
 }
 
