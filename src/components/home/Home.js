@@ -8,16 +8,18 @@ import Description from './Description';
 function Home(props) {
 
     const DATA_PER_PAGE = 20;
-    const MAX_PAGES = 100;
+    // const MAX_PAGES = 100;
     const [data,setData] = useState([]);
     const [pageNum,setPageNum] = useState(0);
     const [selectedData, setSelectedData] = useState(null);
+    const [maxPages,setMaxPages] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {
             try{
                 const result = await axios(`https://api.hh.ru/vacancies?specialization=1&page=${pageNum}&per_page=${DATA_PER_PAGE}`);
                 setData([...result.data.items]);
+                setMaxPages(result.data.pages)
             } catch(error){
                 console.log(error);
             }
@@ -55,7 +57,7 @@ function Home(props) {
                 pageNum={pageNum} 
                 itemClick={itemSelect} 
                 pageClick={handlePageClick}
-                maxPages={MAX_PAGES}
+                maxPages={maxPages}
             >
             </VacancyList>
             <Description data={selectedData} onBtnClick={dataItemClick}/>
