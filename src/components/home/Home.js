@@ -8,7 +8,6 @@ import Description from './Description';
 function Home(props) {
 
     const DATA_PER_PAGE = 20;
-    // const MAX_PAGES = 100;
     const [data,setData] = useState([]);
     const [pageNum,setPageNum] = useState(0);
     const [selectedData, setSelectedData] = useState(null);
@@ -19,7 +18,7 @@ function Home(props) {
             try{
                 const result = await axios(`https://api.hh.ru/vacancies?specialization=1&page=${pageNum}&per_page=${DATA_PER_PAGE}`);
                 setData([...result.data.items]);
-                setMaxPages(result.data.pages)
+                setMaxPages(result.data.pages);
             } catch(error){
                 console.log(error);
             }
