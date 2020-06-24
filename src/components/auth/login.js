@@ -4,6 +4,9 @@ import {getUser,getAuthError} from '../../store/authReducer';
 import {signIn} from '../../store/loginUser';
 import {withRouter} from 'react-router-dom';
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 function Login(props) {
 
     const [username,setUsername] = useState('');
@@ -21,23 +24,30 @@ function Login(props) {
     },[props.user])
 
     return (
-        <form onSubmit={onFormSubmit}>
-            <h3>Sign in form</h3>
-            <div className="form-group">
-                <label>Username</label>
-                <input type="text" required placeholder="username" value={username} onChange={(event)=>setUsername(event.target.value)}></input>
-            </div>
-            <div className="form-group">
-                <label>Password</label>
-                <input type="password" required placeholder="password" value={password} onChange={(event)=>setPassword(event.target.value)}></input>
-            </div>
+        <Form onSubmit={onFormSubmit}>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>User name</Form.Label>
+                <Form.Control type="text" required placeholder="Enter username" value={username} onChange={(event)=>setUsername(event.target.value)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" required placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)} />
+            </Form.Group>
             {
                 props.error? 
-                <p className="error-msg">{props.error}</p>:
+                <Form.Group>
+                    <Form.Text className="text-danger">
+                    {props.error}
+                    </Form.Text>
+                </Form.Group>
+                :
                 null
             }
-            <button type="submit">Sign In</button>
-        </form>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
     )
 }
 
