@@ -4,11 +4,12 @@ import {compose} from 'redux';
 import {getUser} from '../../store/authReducer';
 import { Redirect } from 'react-router-dom';
 
+//check auth with redux
 const WithUser = (Component) => props => {
     if(props.user){
         return <Component {...props}/>;
     }  
-    else{
+    else{ //redirect to login page
         return <Redirect to='/login' />;
     } 
 
