@@ -2,8 +2,8 @@ import React, {useState,useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import WithUser from '../hoc/WithUser';
 import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-import TableData from './TableData';
+import VacancyList from './VacancyList';
+import Description from './Description';
 
 function Home(props) {
 
@@ -11,6 +11,7 @@ function Home(props) {
     const MAX_PAGES = 100;
     const [data,setData] = useState([]);
     const [pageNum,setPageNum] = useState(0);
+    const [selectedData, setSelectedData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,26 +30,36 @@ function Home(props) {
         props.history.push('/vacancy/'+ id);
     }
 
+    const itemSelect = (id) => {
+        setSelectedData(data.find((element)=>{
+            return element.id === id;
+        }));
+    }
+
     const handlePageClick = ({selected}) => {
         setPageNum(selected);
     }
 
+    const getListData = (dataArray) => {
+        return dataArray.map(el=>{
+            return {
+                id: el.id,
+                name: el.name
+            }
+        })
+    }
+
     return (
         <div className="home-page">
-            <TableData data={data} itemClick={dataItemClick}></TableData>
-            <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={<span className="gap">...</span>}
-                pageCount={MAX_PAGES}
-                onPageChange={handlePageClick}
-                forcePage={pageNum}
-                containerClassName='pagination'
-                previousClassName='previous_page'
-                nextClassName='next_page'
-                disabledClassName='disabled'
-                activeClassName='active'
-            />
+            <VacancyList 
+                data={getListData(data)} 
+                pageNum={pageNum} 
+                itemClick={itemSelect} 
+                pageClick={handlePageClick}
+                maxPages={MAX_PAGES}
+            >
+            </VacancyList>
+            <Description data={selectedData} onBtnClick={dataItemClick}/>
         </div>
     )
 }
