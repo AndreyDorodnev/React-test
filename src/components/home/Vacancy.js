@@ -12,7 +12,6 @@ function Vacancy(props) {
         const fetchData = async () => {
             try{
                 const result = await axios(`https://api.hh.ru/vacancies/${props.match.params.id}`);
-                console.log(result);
                 setData(result.data);
             } catch(error){
                 console.log(error);
