@@ -17,7 +17,6 @@ function Home(props) {
         const fetchData = async () => {
             try{
                 const result = await axios(`https://api.hh.ru/vacancies?specialization=1&page=${pageNum}&per_page=${DATA_PER_PAGE}`);
-                console.log(result);
                 setData([...result.data.items]);
             } catch(error){
                 console.log(error);

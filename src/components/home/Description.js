@@ -6,8 +6,6 @@ import {getSalaryStr,getAddressStr,getRequirement,getResponsibilities} from '../
 function Description(props) {
     return (
         <div className="description">
-            {console.log(props)
-            }
             {
                 props.data?
                 <Card>
