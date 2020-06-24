@@ -23,3 +23,11 @@ export const loadState = () => {
       console.log('localStorage save Error');
     }
   };
+
+  export const clearState = () => {
+    try{
+      localStorage.removeItem('userState');
+    } catch(err){
+      console.log('Local storage error!');
+    }
+  }
