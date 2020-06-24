@@ -27,21 +27,6 @@ function VacancyList(props) {
                     />
                 </Card.Body>
             </Card>
-            {/* <h5>Вакансии</h5>
-            <List data={props.data} itemClick={props.itemClick}></List>
-            <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={<span className="gap">...</span>}
-                pageCount={props.maxPages}
-                onPageChange={props.pageClick}
-                forcePage={props.pageNum}
-                containerClassName='pagination'
-                previousClassName='previous_page'
-                nextClassName='next_page'
-                disabledClassName='disabled'
-                activeClassName='active'
-            /> */}
         </div>
     )
 }
