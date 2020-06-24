@@ -21,7 +21,7 @@ function Login(props) {
         if(props.user){
             props.history.push('/');
         }
-    },[props.user])
+    },[props.user]);
 
     return (
         <Form onSubmit={onFormSubmit}>
